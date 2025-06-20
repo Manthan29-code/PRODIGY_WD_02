@@ -55,6 +55,10 @@ body {
     100% { transform: scale(1.06); box-shadow: 0 8px 32px rgba(0,188,212,0.18); }
 }
 
+.timer {
+    animation: pulse 2.5s infinite alternate;
+}
+
 .buttons {
     display: flex;
     gap: 1rem;
@@ -102,10 +106,20 @@ body {
     list-style: none;
     padding: 0;
     margin: 0;
-    max-height: 8.5rem;
+    max-height: 10.5rem;
     overflow-y: auto;
     display: flex;
     flex-direction: column-reverse;
+}
+
+.laps-list::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+.laps-list {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 .laps-list::-webkit-scrollbar {

@@ -11,11 +11,11 @@ const lapBtn = document.getElementById('lapBtn');
 const lapsList = document.getElementById('laps');
 
 function updateDisplay() {
-    const ms = Math.floor((elapsedTime % 1000) / 10);
     const sec = Math.floor((elapsedTime / 1000) % 60);
     const min = Math.floor((elapsedTime / 60000) % 60);
+    const hr = Math.floor((elapsedTime / 3600000));
     timerDisplay.textContent =
-        `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}:${ms.toString().padStart(2, '0')}`;
+        `${hr.toString().padStart(2, '0')}:${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
 }
 
 function start() {
@@ -50,9 +50,6 @@ function reset() {
 
 function lap() {
     if (running) {
-        if (laps.length === 4) {
-            laps.pop(); // Remove the oldest lap
-        }
         laps.unshift(timerDisplay.textContent);
         renderLaps();
     }
